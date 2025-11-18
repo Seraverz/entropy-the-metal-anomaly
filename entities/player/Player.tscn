@@ -203,7 +203,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Falling",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [],
 "loop": true,
@@ -266,7 +266,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Landing",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -320,7 +320,7 @@ script = ExtResource("1_mab2k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(278, 147)
 sprite_frames = SubResource("SpriteFrames_j531f")
-animation = &"Landing"
+animation = &"Jumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(277, 175)
