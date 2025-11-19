@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmubpk75m2jxd"]
+[gd_scene load_steps=4 format=3 uid="uid://cmubpk75m2jxd"]
 
 [ext_resource type="PackedScene" uid="uid://cp1h3asd6cidt" path="res://scenes/map/station.tscn" id="1_j08sa"]
 [ext_resource type="PackedScene" uid="uid://dra0cogy3bnme" path="res://entities/player/Cyborg/cyborg.tscn" id="2_j08sa"]
+[ext_resource type="PackedScene" uid="uid://bxqgetgbc5cto" path="res://scenes/music/in_lab.tscn" id="3_x4si1"]
 
 [node name="Level1" type="Node2D"]
 
@@ -16,3 +17,6 @@ position = Vector2(44, 2)
 zoom = Vector2(3, 3)
 limit_top = -9999999
 position_smoothing_enabled = true
+
+[node name="inLab" parent="Cyborg" instance=ExtResource("3_x4si1")]
+position = Vector2(0, -4)

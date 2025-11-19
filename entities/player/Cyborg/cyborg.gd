@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var movement: Movement = $Movement
 
 const walk_SPEED = 250.0
 const JUMP_VELOCITY = -330.0

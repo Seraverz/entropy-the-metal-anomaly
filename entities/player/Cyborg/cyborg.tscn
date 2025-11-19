@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dra0cogy3bnme"]
+[gd_scene load_steps=49 format=3 uid="uid://dra0cogy3bnme"]
 
 [ext_resource type="Script" uid="uid://cbdvnaof2msm" path="res://entities/player/Cyborg/cyborg.gd" id="1_h6dt7"]
 [ext_resource type="Texture2D" uid="uid://cjauxlrp8ekyl" path="res://assets/sprites/3 Cyborg/No Weapon/Cyborg_idle.png" id="2_5yirn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxu2itsfk40y" path="res://assets/sprites/3 Cyborg/With Laserbeam/idle-2-laserbeam.png" id="5_lelfy"]
 [ext_resource type="Texture2D" uid="uid://cww2w1hd12iab" path="res://assets/sprites/3 Cyborg/No Weapon/Cyborg_run.png" id="6_lelfy"]
 [ext_resource type="Texture2D" uid="uid://d0slicp67ke42" path="res://assets/sprites/3 Cyborg/With Laserbeam/run-2-laserbeam.png" id="7_hbmkm"]
+[ext_resource type="Script" uid="uid://ya5d0w1la0hw" path="res://entities/player/stats.gd" id="9_lelfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyaby"]
 size = Vector2(20, 40)
@@ -309,7 +310,7 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Cyborg" type="CharacterBody2D"]
 position = Vector2(-1, 1)
 slide_on_ceiling = false
 script = ExtResource("1_h6dt7")
@@ -325,3 +326,6 @@ scale = Vector2(1.33236, 1.25)
 sprite_frames = SubResource("SpriteFrames_ut818")
 animation = &"Run2Laserbeam"
 frame_progress = 0.972172
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("9_lelfy")
