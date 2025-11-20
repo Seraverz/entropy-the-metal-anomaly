@@ -23,12 +23,10 @@ var knockback_force: float = 200.0
 
 func _ready() -> void:
 	col_attack.disabled = true
-
 	stats.apply_entropy(entropy_system.multiplier)
 
 
 func _physics_process(delta: float) -> void:
-
 	if state == State.DEAD:
 		return
 
@@ -93,7 +91,6 @@ func _process_run(delta: float) -> void:
 
 
 func _process_attack() -> void:
-	# Selama animasi attack, musuh berhenti maju
 	body.velocity.x = 0.0
 	body.move_and_slide()
 
@@ -103,6 +100,16 @@ func _process_attack() -> void:
 	if anim.is_finished():
 		col_attack.disabled = true
 		state = State.RUN
+		anim.play_run()
+
+
+func _process_knockback(delta: float) -> void:
+	body.move_and_slide()
+	knockback_timer -= delta
+
+	if knockback_timer <= 0.0:
+		state = State.RUN
+		anim.play_run()
 
 
 func _check_attack_hit() -> void:
@@ -138,14 +145,6 @@ func apply_knockback(source_pos: Vector2) -> void:
 	anim.play_run()
 
 
-func _process_knockback(delta: float) -> void:
-	body.move_and_slide()
-	knockback_timer -= delta
-
-	if knockback_timer <= 0.0:
-		state = State.RUN
-
-
 func apply_damage(amount: float, source_pos: Vector2) -> void:
 	var real_damage: float = max(amount - stats.defense * 0.1, 1.0)
 	stats.apply_damage(real_damage)
@@ -160,11 +159,9 @@ func _die() -> void:
 	state = State.DEAD
 
 	body.velocity = Vector2.ZERO
-
 	col_standard.disabled = true
 	col_attack.disabled = true
 
-	col_attack.disabled = true
 	anim.play_death()
 
 
@@ -172,8 +169,11 @@ func _update_facing(dir: float) -> void:
 	if dir == 0.0:
 		return
 
-	anim.flip_h(dir)
+	anim.set_flip(dir)
+	_update_attack_hitbox_flip(dir)
 
+
+func _update_attack_hitbox_flip(dir: float) -> void:
 	var pos: Vector2 = col_attack.position
-	pos.x = abs(pos.x) * (dir < 0.0 ? -1.0 : 1.0)
+	pos.x = abs(pos.x) * (-1.0 if dir < 0.0 else 1.0)
 	col_attack.position = pos

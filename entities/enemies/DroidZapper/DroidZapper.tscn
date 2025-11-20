@@ -251,17 +251,17 @@ size = Vector2(38, 19)
 script = ExtResource("1_knwep")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(371, 163)
+position = Vector2(11, -4.5)
 sprite_frames = SubResource("SpriteFrames_1khy2")
 animation = &"Attack"
 frame_progress = 0.6583227777774951
 
 [node name="CollisionStandard" type="CollisionShape2D" parent="."]
-position = Vector2(360, 169)
+position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_0riub")
 
 [node name="CollisionAttack" type="CollisionShape2D" parent="."]
-position = Vector2(381, 170.5)
+position = Vector2(21, 3)
 shape = SubResource("RectangleShape2D_buao6")
 
 [node name="Anim" type="Node" parent="."]

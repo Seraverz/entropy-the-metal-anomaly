@@ -38,20 +38,17 @@ func play(name: String) -> void:
 func play_wake() -> void:
 	play(ANIM_WAKE)
 
-
 func play_run() -> void:
 	play(ANIM_RUN)
 
-
 func play_attack() -> void:
 	play(ANIM_ATTACK)
-
 
 func play_death() -> void:
 	play(ANIM_DEATH)
 
 
-func flip_h(dir: float) -> void:
+func set_flip(dir: float) -> void:
 	if dir < 0.0:
 		sprite.flip_h = true
 	elif dir > 0.0:

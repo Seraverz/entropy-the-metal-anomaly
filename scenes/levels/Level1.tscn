@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmubpk75m2jxd"]
+[gd_scene load_steps=4 format=3 uid="uid://cmubpk75m2jxd"]
 
 [ext_resource type="PackedScene" uid="uid://cp1h3asd6cidt" path="res://scenes/map/station.tscn" id="1_j08sa"]
 [ext_resource type="PackedScene" uid="uid://dra0cogy3bnme" path="res://entities/player/Cyborg/cyborg.tscn" id="2_j08sa"]
+[ext_resource type="PackedScene" uid="uid://dfnigy5vwrfp6" path="res://entities/enemies/DroidZapper/DroidZapper.tscn" id="2_x4si1"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="MapStation" parent="." instance=ExtResource("1_j08sa")]
 position = Vector2(7, 4)
+
+[node name="DroidZapper" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(603, 239)
 
 [node name="Cyborg" parent="." instance=ExtResource("2_j08sa")]
 position = Vector2(349, 222)
