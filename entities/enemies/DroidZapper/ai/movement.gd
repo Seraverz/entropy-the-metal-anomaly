@@ -36,7 +36,6 @@ func apply_flip(dir: float):
 	if dir == 0.0:
 		return
 
-	var s = -1 if dir < 0 else 1
-	ai.pivot.scale.x = s
-	ai.agro_area.position.x = abs(ai.agro_area.position.x) * s
-	ai.attack_area.position.x = abs(ai.attack_area.position.x) * s
+	ai.pivot.scale.x = -1 if dir < 0 else 1
+	ai.agro_area.position.x = abs(ai.agro_area.position.x) * ai.pivot.scale.x
+	ai.attack_area.position.x = abs(ai.attack_area.position.x) * ai.pivot.scale.x
