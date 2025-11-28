@@ -1,6 +1,8 @@
 extends Node
 class_name DroidZapperStats
 
+signal health_depleted
+
 @export var max_hp: float = 100.0
 @export var attack: float = 6.0
 @export var defense: float = 80.0
@@ -16,8 +18,9 @@ func _ready() -> void:
 
 func apply_damage(amount: float) -> void:
 	current_hp -= amount
-	if current_hp < 0.0:
+	if current_hp <= 0.0:
 		current_hp = 0.0
+		health_depleted.emit()
 
 
 func apply_entropy(multiplier: float) -> void:

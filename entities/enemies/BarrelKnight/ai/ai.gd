@@ -30,6 +30,7 @@ func _ready():
 	combat    = load("res://entities/enemies/BarrelKnight/ai/combat.gd").new(self)
 
 	detection.setup()
+	stats.health_depleted.connect(_on_death)
 
 func _physics_process(delta):
 	match state:
@@ -38,8 +39,26 @@ func _physics_process(delta):
 		State.RUN: _state_run(delta)
 		State.ATTACK: _state_attack()
 		State.KNOCKBACK: _state_knockback(delta)
+		State.DEAD: _state_dead(delta)
 
+func _on_death():
+	if state == State.DEAD:
+		return 
+	state = State.DEAD
+	anim.play_death()
+	col_attack.set_deferred("disabled", true)
+	body.get_node("CollisionStandard").set_deferred("disabled", true)
 
+func _state_dead(delta):
+	if not body.is_on_floor():
+		movement.apply_gravity(delta)
+	else:
+		body.velocity.x = 0
+		
+	body.move_and_slide()
+
+	if anim.is_finished():
+		body.queue_free()
 func _state_idle():
 	if detection.player_in_aggro:
 		state = State.WAKE
