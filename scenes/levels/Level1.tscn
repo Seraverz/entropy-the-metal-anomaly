@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmubpk75m2jxd"]
+[gd_scene load_steps=6 format=3 uid="uid://cmubpk75m2jxd"]
 
 [ext_resource type="PackedScene" uid="uid://cp1h3asd6cidt" path="res://scenes/map/station.tscn" id="1_j08sa"]
 [ext_resource type="PackedScene" uid="uid://dra0cogy3bnme" path="res://entities/player/Cyborg/cyborg.tscn" id="2_j08sa"]
 [ext_resource type="PackedScene" uid="uid://dfnigy5vwrfp6" path="res://entities/enemies/DroidZapper/DroidZapper.tscn" id="2_x4si1"]
-[ext_resource type="PackedScene" uid="uid://bxqgetgbc5cto" path="res://scenes/music/in_lab.tscn" id="3_x4si1"]
 [ext_resource type="PackedScene" uid="uid://dvw2yxt3dne22" path="res://entities/enemies/BarrelKnight/BarrelKnight.tscn" id="5_68ib6"]
 [ext_resource type="AudioStream" uid="uid://cdcp44ekxommo" path="res://assets/BGM/1128.ogg" id="5_76cw8"]
 
@@ -27,11 +26,9 @@ zoom = Vector2(3, 3)
 limit_top = -9999999
 position_smoothing_enabled = true
 
-[node name="inLab" parent="Cyborg" instance=ExtResource("3_x4si1")]
-visible = false
-position = Vector2(4, 2)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cyborg"]
 stream = ExtResource("5_76cw8")
-attenuation = 0.63728
+autoplay = true
 
 [node name="DroidZapper2" parent="." instance=ExtResource("2_x4si1")]
 position = Vector2(466, 468)
@@ -44,3 +41,15 @@ position = Vector2(1264, 39)
 
 [node name="BarrelKnight2" parent="." instance=ExtResource("5_68ib6")]
 position = Vector2(1428, 199)
+
+[node name="DroidZapper5" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(1483, -331)
+
+[node name="BarrelKnight3" parent="." instance=ExtResource("5_68ib6")]
+position = Vector2(1941, -292)
+
+[node name="DroidZapper6" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(2347, -652)
+
+[node name="DroidZapper7" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(1589, -544)

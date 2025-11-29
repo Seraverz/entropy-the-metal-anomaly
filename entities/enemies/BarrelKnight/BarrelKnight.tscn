@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dvw2yxt3dne22"]
+[gd_scene load_steps=51 format=3 uid="uid://dvw2yxt3dne22"]
 
 [ext_resource type="Script" uid="uid://dxua3phnhk37f" path="res://entities/enemies/EnemyBase/base/EnemyEntity.gd" id="1_qih3o"]
 [ext_resource type="Texture2D" uid="uid://c0t3f4tuhxx7v" path="res://assets/sprites/Enemies/Barrel Knight/A-attacks1.png" id="2_arfg4"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://p625qkjbkjvr" path="res://entities/enemies/EnemyBase/components/states/StateDeath.gd" id="25_fr3pm"]
 [ext_resource type="Script" uid="uid://4aac5vo8vyol" path="res://entities/enemies/EnemyBase/components/EnemyStats.gd" id="25_qih3o"]
 [ext_resource type="Script" uid="uid://dkgunqogw6x5f" path="res://entities/enemies/EnemyBase/components/EnemyMover.gd" id="26_ag7vh"]
+[ext_resource type="Script" uid="uid://cw206nlm8iqeo" path="res://entities/enemies/EnemyBase/components/EnemyHealthBar.gd" id="28_u5321"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mats0"]
 atlas = ExtResource("2_arfg4")
@@ -173,6 +174,12 @@ size = Vector2(46.75, 17.125)
 radius = 11.0
 height = 38.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp1s8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yfh3"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="BarrelKnight" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_qih3o")
 
@@ -183,7 +190,8 @@ texture_filter = 1
 position = Vector2(52, -18)
 scale = Vector2(1.61989, 1.67455)
 sprite_frames = SubResource("SpriteFrames_1khy2")
-animation = &"Wake"
+animation = &"Run"
+frame_progress = 0.3310183333332961
 
 [node name="VisionArea" type="Area2D" parent="Marker2D"]
 script = ExtResource("18_fr3pm")
@@ -226,6 +234,19 @@ script = ExtResource("25_fr3pm")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("25_qih3o")
+max_hp = 250.0
+attack_damage = 60.0
+defense = 40.0
 
 [node name="Mover" type="Node" parent="."]
 script = ExtResource("26_ag7vh")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -25.0
+offset_top = -44.0
+offset_right = 26.0
+offset_bottom = -40.0
+theme_override_styles/background = SubResource("StyleBoxFlat_yp1s8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3yfh3")
+show_percentage = false
+script = ExtResource("28_u5321")

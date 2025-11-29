@@ -1,6 +1,7 @@
 extends Node
 class_name EnemyStats
 
+signal health_changed(current_hp: float, max_hp: float)
 signal health_depleted
 
 @export_group("Attributes")
@@ -12,17 +13,24 @@ var current_hp: float = 0.0
 
 func _ready() -> void:
 	current_hp = max_hp
+	health_changed.emit(current_hp, max_hp)
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: float) -> float:
 	var actual_damage = max(0, amount - defense)
 	current_hp -= actual_damage
+	
+	health_changed.emit(current_hp, max_hp)
 	
 	if current_hp <= 0.0:
 		current_hp = 0.0
 		health_depleted.emit()
+	
+	return actual_damage
 
 func apply_entropy(multiplier: float) -> void:
 	max_hp *= multiplier
 	attack_damage *= multiplier
 	defense *= multiplier
 	current_hp = max_hp
+	
+	health_changed.emit(current_hp, max_hp)
