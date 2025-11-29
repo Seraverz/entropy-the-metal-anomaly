@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmubpk75m2jxd"]
+[gd_scene load_steps=8 format=3 uid="uid://cmubpk75m2jxd"]
 
 [ext_resource type="PackedScene" uid="uid://cp1h3asd6cidt" path="res://scenes/map/station.tscn" id="1_j08sa"]
 [ext_resource type="PackedScene" uid="uid://dra0cogy3bnme" path="res://entities/player/Cyborg/cyborg.tscn" id="2_j08sa"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxqgetgbc5cto" path="res://scenes/music/in_lab.tscn" id="3_x4si1"]
 [ext_resource type="PackedScene" uid="uid://dvw2yxt3dne22" path="res://entities/enemies/BarrelKnight/BarrelKnight.tscn" id="5_68ib6"]
 [ext_resource type="AudioStream" uid="uid://cdcp44ekxommo" path="res://assets/BGM/1128.ogg" id="5_76cw8"]
+[ext_resource type="PackedScene" uid="uid://b1ctra5gx0yqc" path="res://component/the_metal/collectible.tscn" id="7_m00rq"]
 
 [node name="Level1" type="Node2D"]
 
@@ -44,3 +45,6 @@ position = Vector2(1264, 39)
 
 [node name="BarrelKnight2" parent="." instance=ExtResource("5_68ib6")]
 position = Vector2(1428, 199)
+
+[node name="collectible" parent="." instance=ExtResource("7_m00rq")]
+position = Vector2(962, 147)

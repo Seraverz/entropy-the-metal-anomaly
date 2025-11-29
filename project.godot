@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 scene_manager="*res://autoload/scene_manager.gd"
 AudioManager="*res://autoload/audio_manager.gd"
-InLabMusic="*res://scenes/music/in_lab.tscn"
 entropy_system="*res://autoload/entropy.gd"
+GameState="*res://autoload/game_state.gd"
 
 [global_group]
 
