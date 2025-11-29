@@ -1,11 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmubpk75m2jxd"]
+[gd_scene load_steps=7 format=3 uid="uid://cmubpk75m2jxd"]
 
-[ext_resource type="PackedScene" uid="uid://bet7tmucb5pbb" path="res://entities/player/Player.tscn" id="1_1pwbc"]
 [ext_resource type="PackedScene" uid="uid://cp1h3asd6cidt" path="res://scenes/map/station.tscn" id="1_j08sa"]
+[ext_resource type="PackedScene" uid="uid://dra0cogy3bnme" path="res://entities/player/Cyborg/cyborg.tscn" id="2_j08sa"]
+[ext_resource type="PackedScene" uid="uid://dfnigy5vwrfp6" path="res://entities/enemies/DroidZapper/DroidZapper.tscn" id="2_x4si1"]
+[ext_resource type="PackedScene" uid="uid://bxqgetgbc5cto" path="res://scenes/music/in_lab.tscn" id="3_x4si1"]
+[ext_resource type="PackedScene" uid="uid://dvw2yxt3dne22" path="res://entities/enemies/BarrelKnight/BarrelKnight.tscn" id="5_68ib6"]
+[ext_resource type="AudioStream" uid="uid://cdcp44ekxommo" path="res://assets/BGM/1128.ogg" id="5_76cw8"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="MapStation" parent="." instance=ExtResource("1_j08sa")]
+position = Vector2(7, 4)
 
-[node name="Player" parent="." instance=ExtResource("1_1pwbc")]
-position = Vector2(371, 198)
+[node name="DroidZapper" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(701, 243)
+
+[node name="DroidZapper" parent="DroidZapper" instance=ExtResource("2_x4si1")]
+position = Vector2(-304, 1)
+
+[node name="Cyborg" parent="." instance=ExtResource("2_j08sa")]
+position = Vector2(661, 393)
+
+[node name="Camera2D2" type="Camera2D" parent="Cyborg"]
+position = Vector2(44, 2)
+zoom = Vector2(3, 3)
+limit_top = -9999999
+position_smoothing_enabled = true
+
+[node name="inLab" parent="Cyborg" instance=ExtResource("3_x4si1")]
+visible = false
+position = Vector2(4, 2)
+stream = ExtResource("5_76cw8")
+attenuation = 0.63728
+
+[node name="DroidZapper2" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(466, 468)
+
+[node name="DroidZapper3" parent="." instance=ExtResource("2_x4si1")]
+position = Vector2(262, 467)
+
+[node name="BarrelKnight" parent="." instance=ExtResource("5_68ib6")]
+position = Vector2(1264, 39)
+
+[node name="BarrelKnight2" parent="." instance=ExtResource("5_68ib6")]
+position = Vector2(1428, 199)
