@@ -1,6 +1,8 @@
 extends Node
 class_name BarrelKnightStats
 
+signal health_depleted 
+
 @export var max_hp: float = 100.0
 @export var attack: float = 6.0
 @export var defense: float = 80.0
@@ -9,15 +11,15 @@ class_name BarrelKnightStats
 
 var current_hp: float = 0.0
 
-
 func _ready() -> void:
 	current_hp = max_hp
 
-
 func apply_damage(amount: float) -> void:
 	current_hp -= amount
-	if current_hp < 0.0:
+	if current_hp <= 0.0:
 		current_hp = 0.0
+		health_depleted.emit()
+
 
 
 func apply_entropy(multiplier: float) -> void:
@@ -25,5 +27,4 @@ func apply_entropy(multiplier: float) -> void:
 	attack *= multiplier
 	defense *= multiplier
 	speed *= multiplier
-
 	current_hp = max_hp

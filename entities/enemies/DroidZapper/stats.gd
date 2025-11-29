@@ -28,5 +28,4 @@ func apply_entropy(multiplier: float) -> void:
 	attack *= multiplier
 	defense *= multiplier
 	speed *= multiplier
-
 	current_hp = max_hp
