@@ -97,16 +97,24 @@ func _state_attack(delta: float):
 
 
 func fire_bullet():
-	if not cyborg.bullet_scene:
-		return
-
+	if not cyborg.bullet_scene: return
+	
 	var bullet = cyborg.bullet_scene.instantiate()
-	
 	bullet.global_position = cyborg.muzzle.global_position
-	
 	var pivot_scale = cyborg.get_node("Pivot").scale.x
 	bullet.direction = pivot_scale
-	bullet.damage = cyborg.stats.attack_damage
+	
+	var stats = cyborg.stats
+	var is_crit = randf() < stats.get_crit_rate()
+	var can_knockback = randf() < stats.get_knockback_rate()
+	
+	var final_damage = stats.attack_damage
+	if is_crit:
+		final_damage *= stats.crit_multiplier
+		
+	bullet.damage = final_damage
+	bullet.is_critical = is_crit 
+	bullet.can_knockback = can_knockback 
 	
 	get_tree().current_scene.add_child(bullet)
 

@@ -2,7 +2,12 @@ extends Node
 class_name CyborgStats
 
 # ===== Combat Stats =====
+@export var hp: float = 500
 @export var attack_damage: float = 100
+@export var luck: float = 10.0
+@export var base_crit_rate: float = 0.1 
+@export var base_knockback_rate: float = 0.2
+@export var crit_multiplier: float = 2.0
 
 # ===== Movement Stats =====
 @export var move_speed: float = 250.0
@@ -18,3 +23,9 @@ class_name CyborgStats
 @export var fall_threshold: float = 2000.0
 @export var jump_threshold: float = -10.0
 @export var run_threshold: float = 0.1
+
+func get_crit_rate() -> float:
+	return base_crit_rate + (luck * 0.001)
+
+func get_knockback_rate() -> float:
+	return base_knockback_rate + (luck * 0.002)

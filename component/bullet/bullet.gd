@@ -5,6 +5,8 @@ class_name Bullet
 var direction: float = 1.0
 
 var damage: float = 0.0 
+var is_critical: bool = false   
+var can_knockback: bool = false 
 
 func _ready():
 	if not body_entered.is_connected(_on_body_entered):
@@ -23,9 +25,8 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("enemies"):
 		if body.has_method("apply_damage"):
-			body.apply_damage(damage, global_position) 
+			body.apply_damage(damage, global_position, is_critical, can_knockback)
 		queue_free()
-		
 	elif body.name != "Cyborg":
 		queue_free()
 
