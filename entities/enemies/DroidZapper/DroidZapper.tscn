@@ -316,6 +316,7 @@ script = ExtResource("11_616lm")
 
 [node name="Chase" type="Node" parent="AI"]
 script = ExtResource("12_ifdbu")
+attack_range = 80.0
 
 [node name="Death" type="Node" parent="AI"]
 script = ExtResource("13_juptk")
