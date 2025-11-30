@@ -1,6 +1,6 @@
 extends EnemyState
 
-@export var attack_range: float = 160.0
+@export var attack_range: float = 100
 @export var attack_cooldown: float = 0.5
 
 var can_attack: bool = false
