@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name EnemyEntity
 
-@export var floating_text_scene: PackedScene = preload("res://component/ui/FloatingText.tscn")
+@export var floating_text_scene: PackedScene = preload("res://scenes/ui/FloatingText/FloatingText.tscn")
 
 @onready var stats: EnemyStats = $Stats
 @onready var mover: EnemyMover = $Mover

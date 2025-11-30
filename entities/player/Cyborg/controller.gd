@@ -185,3 +185,8 @@ func change_state(new_state: State):
 			cyborg.anim.play_hurt()
 		State.DEAD:
 			cyborg.anim.play_death()
+			
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if state != State.DEAD:
+			SceneManager.toggle_pause()
