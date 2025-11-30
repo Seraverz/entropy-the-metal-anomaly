@@ -1,9 +1,9 @@
 extends EnemyState
 
-@export var attack_range: float = 40.0
+@export var attack_range: float = 100
+@export var attack_cooldown: float = 0.5
 
 var can_attack: bool = false
-var attack_cooldown: float = 1.0
 var timer: float = 0.0
 
 func enter() -> void:
