@@ -1,7 +1,7 @@
 extends Node
 class_name CyborgController
 
-enum State { IDLE, RUN, AIR, ATTACK, DEAD }
+enum State { IDLE, RUN, AIR, ATTACK, DEAD, HURT }
 var state: State = State.IDLE
 
 var cyborg: Cyborg
@@ -12,11 +12,16 @@ func setup(player_ref: Cyborg):
 	cyborg.stats.player_died.connect(_on_player_died)
 
 func update(delta: float):
-	if state != State.ATTACK and cyborg.input.is_fire_pressed():
-		change_state(State.ATTACK)
-		return
 	if state == State.DEAD:
 		_state_dead(delta)
+		return
+	
+	if state == State.HURT:
+		_state_hurt(delta)
+		return
+
+	if state != State.ATTACK and cyborg.input.is_fire_pressed():
+		change_state(State.ATTACK)
 		return
 
 	match state:
@@ -24,7 +29,20 @@ func update(delta: float):
 		State.RUN: _state_run(delta)
 		State.AIR: _state_air(delta)
 		State.ATTACK: _state_attack(delta)
+		State.HURT: _state_hurt(delta)
 		
+func trigger_hurt():
+	if state != State.DEAD:
+		change_state(State.HURT)
+		
+func _state_hurt(delta: float):
+	cyborg.movement.apply_gravity(delta)
+	cyborg.movement.apply_friction(cyborg.stats.ground_friction, delta)
+	cyborg.move_and_slide()
+	
+	if cyborg.anim.is_finished():
+		change_state(State.IDLE)
+
 func _on_player_died():
 	if state != State.DEAD:
 		change_state(State.DEAD)
@@ -163,5 +181,7 @@ func change_state(new_state: State):
 			fire_bullet()
 		State.AIR: 
 			pass
+		State.HURT:
+			cyborg.anim.play_hurt()
 		State.DEAD:
 			cyborg.anim.play_death()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://dra0cogy3bnme"]
+[gd_scene load_steps=101 format=3 uid="uid://dra0cogy3bnme"]
 
 [ext_resource type="Script" uid="uid://cbdvnaof2msm" path="res://entities/player/Cyborg/cyborg.gd" id="1_h6dt7"]
 [ext_resource type="Texture2D" uid="uid://cjauxlrp8ekyl" path="res://assets/sprites/3 Cyborg/No Weapon/Cyborg_idle.png" id="2_5yirn"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4ibfv3avge5" path="res://assets/sprites/3 Cyborg/With Laserbeam/fix/firing/firingHorLaserbeam2.png" id="16_5qolx"]
 [ext_resource type="Texture2D" uid="uid://by0ncioheplsv" path="res://assets/sprites/3 Cyborg/With Laserbeam/fix/firing/NewfiringHorLaserbeam6.png" id="16_ahrer"]
 [ext_resource type="Texture2D" uid="uid://c8qw1wmxbqsve" path="res://assets/sprites/3 Cyborg/With Laserbeam/fix/firing/firingHorLaserbeam3.png" id="17_g0dw2"]
+[ext_resource type="Texture2D" uid="uid://dhfmc7a8e1wi1" path="res://assets/sprites/3 Cyborg/No Weapon/Cyborg_hurt.png" id="18_ahrer"]
 [ext_resource type="Texture2D" uid="uid://brd6ht7rl4jwp" path="res://assets/sprites/3 Cyborg/With Laserbeam/fix/firing/firingHorLaserbeam4.png" id="18_x8spx"]
 [ext_resource type="Texture2D" uid="uid://p4fs8mvqtw6e" path="res://assets/sprites/3 Cyborg/With Laserbeam/fix/firing/firingHorLaserbeam5.png" id="19_wlryj"]
 [ext_resource type="Texture2D" uid="uid://cic7bufegr20t" path="res://assets/sprites/3 Cyborg/With Laserbeam/fix/firing/firingHorLaserbeam6.png" id="20_u8jbd"]
@@ -126,6 +127,14 @@ region = Rect2(101, 0, 19, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrrt3"]
 atlas = ExtResource("4_eom1p")
 region = Rect2(149, 0, 19, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrcl0"]
+atlas = ExtResource("18_ahrer")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luego"]
+atlas = ExtResource("18_ahrer")
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cn2o"]
 atlas = ExtResource("2_5yirn")
@@ -410,6 +419,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xrcl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luego")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2cn2o")
 }, {
 "duration": 1.0,
@@ -579,7 +599,7 @@ texture_filter = 1
 position = Vector2(-18, -30)
 scale = Vector2(1.33236, 1.25)
 sprite_frames = SubResource("SpriteFrames_ut818")
-animation = &"Death"
+animation = &"Hurt"
 centered = false
 
 [node name="Muzzle" type="Marker2D" parent="Pivot"]
