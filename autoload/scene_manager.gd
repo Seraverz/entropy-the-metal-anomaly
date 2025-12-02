@@ -11,6 +11,7 @@ const MAIN_MENU_PATH = "res://scenes/ui/menus/MainMenu/MainMenu.tscn"
 const PAUSE_MENU_PATH = "res://scenes/ui/menus/PauseMenu/PauseMenu.tscn"
 const SETTINGS_MENU_PATH = "res://scenes/ui/menus/SettingsMenu/SettingsMenu.tscn"
 const LEVEL_1_PATH = "res://scenes/levels/Level1.tscn"
+const LEVEL_2_PATH = "res://scenes/levels/Level2.tscn"
 const HUD_PATH = "res://scenes/ui/PlayerHUD/PlayerHUD.tscn"
 
 func _ready() -> void:
