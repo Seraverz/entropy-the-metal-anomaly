@@ -18,9 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://autoload/scene_manager.gd"
-AudioManager="*res://autoload/audio_manager.gd"
 entropy_system="*res://autoload/entropy.gd"
 GameState="*res://autoload/game_state.gd"
+AudioManager="*res://autoload/Audio_manager/AudioManager.tscn"
+UI_SFX="*res://autoload/ui_sfx.gd"
 
 [global_group]
 

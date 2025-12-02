@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmefrrtfqpexy"]
+[gd_scene load_steps=4 format=3 uid="uid://bmefrrtfqpexy"]
 
 [ext_resource type="Script" uid="uid://b81mmvfj3y4qh" path="res://scenes/ui/menus/PauseMenu/pause_menu.gd" id="1_tu5oj"]
+[ext_resource type="Script" uid="uid://cnxfydef3no83" path="res://autoload/ui_sfx.gd" id="2_ewwjm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ewwjm"]
 
@@ -17,7 +18,7 @@ script = ExtResource("1_tu5oj")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 646.0
-color = Color(1, 1, 1, 0.19607843)
+color = Color(1, 1, 1, 0.196078)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -36,11 +37,14 @@ horizontal_alignment = 1
 [node name="BtnResume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Resume"
+script = ExtResource("2_ewwjm")
 
 [node name="BtnSettings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("2_ewwjm")
 
 [node name="BtnQuit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+script = ExtResource("2_ewwjm")
