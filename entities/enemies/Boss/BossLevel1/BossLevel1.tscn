@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://65hmy4g1uxfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvlyk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k18qj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny821"]
+
+[node name="BossLevel1" type="CharacterBody2D"]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Marker2D"]
+
+[node name="VisionArea" type="Area2D" parent="Marker2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/VisionArea"]
+shape = SubResource("RectangleShape2D_jvlyk")
+
+[node name="AttackArea" type="Area2D" parent="Marker2D"]
+
+[node name="CollisionAttack" type="CollisionShape2D" parent="Marker2D/AttackArea"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_k18qj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_ny821")
