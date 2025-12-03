@@ -73,7 +73,7 @@ is_boss_gate = true
 required_score = 50
 
 [node name="BossLevel1" parent="." instance=ExtResource("8_brv20")]
-position = Vector2(1010, -1344)
+position = Vector2(2208, -1357)
 
 [node name="Collectible" parent="." instance=ExtResource("7_m00rq")]
 position = Vector2(558, 229)
