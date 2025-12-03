@@ -68,5 +68,12 @@ scale = Vector2(1.26778, 0.994979)
 position = Vector2(2168, -987)
 scale = Vector2(1.80427, 1.33365)
 
+[node name="door3" parent="." instance=ExtResource("6_76cw8")]
+position = Vector2(1806.0000000000002, -1286)
+rotation = 1.5707963267948966
+scale = Vector2(1.5017380420210509, 1.5017380420210509)
+is_boss_gate = true
+required_score = 50
+
 [node name="BossLevel1" parent="." instance=ExtResource("8_brv20")]
 position = Vector2(1010, -1344)

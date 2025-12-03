@@ -17,6 +17,7 @@ func _on_body_entered(body: Node) -> void:
 	collision.set_deferred("disabled", true)
 	
 	GameState.add_score(score_value)
+	GameState.add_coin(score_value)
 	
 	var tween = create_tween()
 	tween.set_parallel(true)

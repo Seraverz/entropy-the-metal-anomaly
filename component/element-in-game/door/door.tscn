@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5ckympfh7one"]
+[gd_scene load_steps=16 format=3 uid="uid://c5ckympfh7one"]
 
 [ext_resource type="Script" uid="uid://cncs66oqi1jus" path="res://component/element-in-game/door/door.gd" id="1_wgkqw"]
 [ext_resource type="Texture2D" uid="uid://cydd6rjh3m2va" path="res://assets/map/Objects/4 Animated objects/Entry.png" id="2_6uuh1"]
@@ -84,6 +84,13 @@ size = Vector2(97, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o5yi"]
 size = Vector2(32, 96)
 
+[sub_resource type="SystemFont" id="SystemFont_8ok2v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfxw5"]
+font = SubResource("SystemFont_8ok2v")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="door" type="Node2D"]
 script = ExtResource("1_wgkqw")
 
@@ -106,6 +113,13 @@ shape = SubResource("RectangleShape2D_2o5yi")
 
 [node name="TimerDoor" type="Timer" parent="."]
 one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 60.0
+offset_bottom = -25.0
+label_settings = SubResource("LabelSettings_tfxw5")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_sprite_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
