@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmubpk75m2jxd"]
+[gd_scene load_steps=9 format=3 uid="uid://cmubpk75m2jxd"]
 
 [ext_resource type="PackedScene" uid="uid://cp1h3asd6cidt" path="res://scenes/map/station.tscn" id="1_j08sa"]
 [ext_resource type="PackedScene" uid="uid://dra0cogy3bnme" path="res://entities/player/Cyborg/cyborg.tscn" id="2_j08sa"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cdcp44ekxommo" path="res://assets/BGM/1128.ogg" id="5_76cw8"]
 [ext_resource type="PackedScene" uid="uid://c5ckympfh7one" path="res://component/element-in-game/door/door.tscn" id="6_76cw8"]
 [ext_resource type="PackedScene" uid="uid://b1ctra5gx0yqc" path="res://component/the_metal/Collectible.tscn" id="7_m00rq"]
+[ext_resource type="PackedScene" uid="uid://65hmy4g1uxfi" path="res://entities/enemies/Boss/BossLevel1/BossLevel1.tscn" id="8_brv20"]
 
 [node name="Level1" type="Node2D"]
 
@@ -66,3 +67,6 @@ scale = Vector2(1.26778, 0.994979)
 [node name="door2" parent="." instance=ExtResource("6_76cw8")]
 position = Vector2(2168, -987)
 scale = Vector2(1.80427, 1.33365)
+
+[node name="BossLevel1" parent="." instance=ExtResource("8_brv20")]
+position = Vector2(1010, -1344)
