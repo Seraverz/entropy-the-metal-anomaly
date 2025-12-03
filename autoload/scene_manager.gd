@@ -7,12 +7,17 @@ var current_level: Node = null
 var current_menu: Node = null
 var is_game_paused: bool = false
 
+var current_level_path: String = "" 
+
+# --- DATABASE PATH SCENE ---
 const MAIN_MENU_PATH = "res://scenes/ui/menus/MainMenu/MainMenu.tscn"
 const PAUSE_MENU_PATH = "res://scenes/ui/menus/PauseMenu/PauseMenu.tscn"
 const SETTINGS_MENU_PATH = "res://scenes/ui/menus/SettingsMenu/SettingsMenu.tscn"
+const GAME_OVER_PATH = "res://scenes/ui/GameState/game_over.tscn"
+const VICTORY_PATH = "res://scenes/ui/GameState/victory.tscn"
+const HUD_PATH = "res://scenes/ui/PlayerHUD/PlayerHUD.tscn"
 const LEVEL_1_PATH = "res://scenes/levels/Level1.tscn"
 const LEVEL_2_PATH = "res://scenes/levels/Level2.tscn"
-const HUD_PATH = "res://scenes/ui/PlayerHUD/PlayerHUD.tscn"
 
 func _ready() -> void:
 	var main = get_tree().root.get_node("Main")
@@ -21,11 +26,20 @@ func _ready() -> void:
 		ui_root = main.get_node("UiRoot")
 		
 		load_menu(MAIN_MENU_PATH)
+	else:
+		printerr("SceneManager Error: Node 'Main' tidak ditemukan di Root!")
+
+# ==============================================================================
+# LEVEL MANAGEMENT
+# ==============================================================================
 
 func load_level(level_path: String) -> void:
 	unload_menu()
 	unload_level()
 	
+	current_level_path = level_path
+	
+	# 3. Load Level Baru
 	var level_res = load(level_path)
 	if level_res:
 		current_level = level_res.instantiate()
@@ -35,12 +49,25 @@ func load_level(level_path: String) -> void:
 		
 		get_tree().paused = false
 		is_game_paused = false
+		
+	else:
+		printerr("SceneManager: Gagal memuat level di path -> ", level_path)
+
+func reload_level() -> void:
+	if current_level_path != "":
+		load_level(current_level_path)
+	else:
+		printerr("SceneManager: Tidak ada level yang disimpan untuk di-restart.")
 
 func unload_level() -> void:
 	if current_level:
 		current_level.queue_free()
 		current_level = null
 	unload_hud()
+
+# ==============================================================================
+# MENU MANAGEMENT
+# ==============================================================================
 
 func load_menu(menu_path: String) -> void:
 	unload_menu()
@@ -49,21 +76,35 @@ func load_menu(menu_path: String) -> void:
 	if menu_res:
 		current_menu = menu_res.instantiate()
 		ui_root.add_child(current_menu)
+	else:
+		printerr("SceneManager: Gagal memuat menu di path -> ", menu_path)
 
 func unload_menu() -> void:
 	if current_menu:
 		current_menu.queue_free()
 		current_menu = null
 
+# ==============================================================================
+# HUD MANAGEMENT
+# ==============================================================================
+
 func load_hud() -> void:
 	if not ui_root.has_node("PlayerHUD"):
-		var hud = load(HUD_PATH).instantiate()
-		hud.name = "PlayerHUD"
-		ui_root.add_child(hud)
+		var hud_res = load(HUD_PATH)
+		if hud_res:
+			var hud = hud_res.instantiate()
+			hud.name = "PlayerHUD" 
+			ui_root.add_child(hud)
+		else:
+			printerr("SceneManager: HUD scene tidak ditemukan di path -> ", HUD_PATH)
 
 func unload_hud() -> void:
 	if ui_root.has_node("PlayerHUD"):
 		ui_root.get_node("PlayerHUD").queue_free()
+
+# ==============================================================================
+# GAME STATES (PAUSE, WIN, LOSE)
+# ==============================================================================
 
 func toggle_pause() -> void:
 	if not current_level: return
@@ -72,8 +113,16 @@ func toggle_pause() -> void:
 	get_tree().paused = is_game_paused
 	
 	if is_game_paused:
-		var pause_menu = load(PAUSE_MENU_PATH).instantiate()
-		ui_root.add_child(pause_menu)
-		current_menu = pause_menu
+		var pause_res = load(PAUSE_MENU_PATH)
+		if pause_res:
+			var pause_menu = pause_res.instantiate()
+			ui_root.add_child(pause_menu)
+			current_menu = pause_menu
 	else:
 		unload_menu()
+
+func show_game_over() -> void:
+	await get_tree().create_timer(1.0).timeout
+	
+	load_menu(GAME_OVER_PATH)
+	get_tree().paused = true #

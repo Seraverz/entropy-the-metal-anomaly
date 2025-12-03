@@ -52,6 +52,10 @@ func _state_dead(delta: float):
 	cyborg.movement.apply_gravity(delta)
 	cyborg.movement.apply_friction(cyborg.stats.ground_friction, delta)
 	cyborg.move_and_slide()
+	
+	if cyborg.anim.is_finished():
+		set_physics_process(false)
+		SceneManager.show_game_over()
 
 
 func _state_idle(delta: float):

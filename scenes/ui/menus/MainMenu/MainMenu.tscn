@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwo1nka4q2pks"]
+[gd_scene load_steps=6 format=3 uid="uid://cwo1nka4q2pks"]
 
 [ext_resource type="Script" uid="uid://377po2tylgdp" path="res://scenes/ui/menus/MainMenu/main_menu.gd" id="1_vjtqc"]
 [ext_resource type="Texture2D" uid="uid://1ujbciarvhso" path="res://assets/UI/1 Frames/Menu.png" id="2_g8xul"]
 [ext_resource type="Texture2D" uid="uid://t1dqe13cu2oq" path="res://assets/UI/generalbutton.png" id="3_6fxxm"]
 [ext_resource type="FontFile" uid="uid://cbhvhpjn0da6c" path="res://assets/UI/Font/CyberpunkCraftpixPixel.otf" id="4_jnww2"]
+[ext_resource type="Script" uid="uid://c3v6ihn0ngusp" path="res://component/ui/sfx/UiSoundComponent.gd" id="5_6fxxm"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -42,6 +43,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jnww2")
 text = "Start"
 
+[node name="BtnSound" type="Node" parent="VBoxContainerStart/BtnStart"]
+script = ExtResource("5_6fxxm")
+
 [node name="VBoxContainerSettings" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 476.0
@@ -53,6 +57,9 @@ offset_bottom = 469.0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jnww2")
 text = "Settings"
+
+[node name="BtnSound" type="Node" parent="VBoxContainerSettings/BtnSettings"]
+script = ExtResource("5_6fxxm")
 
 [node name="Generalbutton" type="Sprite2D" parent="VBoxContainerSettings"]
 z_index = -1
@@ -72,6 +79,9 @@ offset_bottom = 548.0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jnww2")
 text = "Quit"
+
+[node name="BtnSound" type="Node" parent="VBoxContainerQuit/BtnQuit"]
+script = ExtResource("5_6fxxm")
 
 [node name="Generalbutton" type="Sprite2D" parent="VBoxContainerQuit"]
 z_index = -1

@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgfe25dnapyk4"]
+[gd_scene load_steps=6 format=3 uid="uid://bgfe25dnapyk4"]
 
+[ext_resource type="Script" uid="uid://iax71s816koc" path="res://scenes/ui/GameState/victory.gd" id="1_76bsn"]
 [ext_resource type="FontFile" uid="uid://cbhvhpjn0da6c" path="res://assets/UI/Font/CyberpunkCraftpixPixel.otf" id="1_lkjwj"]
 [ext_resource type="Texture2D" uid="uid://c517t8wkks1o" path="res://assets/UI/5 Logo/Button2_05.png" id="2_76bsn"]
+[ext_resource type="Script" uid="uid://c3v6ihn0ngusp" path="res://component/ui/sfx/UiSoundComponent.gd" id="3_cp85g"]
 [ext_resource type="Texture2D" uid="uid://dxqoev7yvw2c8" path="res://assets/UI/others/UI_Flat_Banner01a.png" id="3_kysx5"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
@@ -13,6 +16,7 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00458, 1.0052)
+script = ExtResource("1_76bsn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -29,6 +33,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_lkjwj")
 theme_override_font_sizes/font_size = 13
 text = "THANKS"
+
+[node name="BtnSound" type="Node" parent="VBoxContainer/BtnQuit"]
+script = ExtResource("3_cp85g")
 
 [node name="Button205" type="Sprite2D" parent="."]
 z_index = -1
