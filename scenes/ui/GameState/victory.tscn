@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgfe25dnapyk4"]
+
+[ext_resource type="FontFile" uid="uid://cbhvhpjn0da6c" path="res://assets/UI/Font/CyberpunkCraftpixPixel.otf" id="1_lkjwj"]
+[ext_resource type="Texture2D" uid="uid://c517t8wkks1o" path="res://assets/UI/5 Logo/Button2_05.png" id="2_76bsn"]
+[ext_resource type="Texture2D" uid="uid://dxqoev7yvw2c8" path="res://assets/UI/others/UI_Flat_Banner01a.png" id="3_kysx5"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00458, 1.0052)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 421.07
+offset_top = 381.018
+offset_right = 485.07
+offset_bottom = 421.018
+scale = Vector2(4.11322, 4.21273)
+alignment = 1
+
+[node name="BtnQuit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lkjwj")
+theme_override_font_sizes/font_size = 13
+text = "THANKS"
+
+[node name="Button205" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(572.376, 322.323)
+scale = Vector2(95.4032, 53.9248)
+texture = ExtResource("2_76bsn")
+
+[node name="UiFlatBanner01a" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(557.445, 246.716)
+scale = Vector2(11.4969, 8.68225)
+texture = ExtResource("3_kysx5")
+
+[node name="Victory" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 351.389
+offset_top = 207.918
+offset_right = 423.389
+offset_bottom = 230.918
+scale = Vector2(5.61593, 6.01547)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lkjwj")
+text = "VICTORY"
+
+[node name="Notes" type="Label" parent="."]
+layout_mode = 0
+offset_left = 223.973
+offset_top = 361.121
+offset_right = 832.973
+offset_bottom = 384.121
+scale = Vector2(1.10339, 1.69552)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lkjwj")
+text = "You saved the world. And now… humanity will rise once again."

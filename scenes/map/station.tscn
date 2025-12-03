@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://cp1h3asd6cidt"]
+[gd_scene load_steps=11 format=4 uid="uid://cp1h3asd6cidt"]
 
 [ext_resource type="Texture2D" uid="uid://clsesoysh8bgk" path="res://assets/map/Tileset.png" id="1_0ao84"]
 [ext_resource type="Texture2D" uid="uid://c8yqymkqfanv4" path="res://assets/map/others/gameControl1.png" id="2_6i361"]
 [ext_resource type="Texture2D" uid="uid://10pxssc5v2he" path="res://assets/map/others/gameControl2.png" id="3_hnssf"]
 [ext_resource type="Texture2D" uid="uid://dt54pynqo6agm" path="res://assets/map/others/gameControl3.png" id="4_l4xe3"]
 [ext_resource type="Texture2D" uid="uid://splpbhvaxpya" path="res://assets/map/others/gameControl4.png" id="5_gi128"]
-[ext_resource type="PackedScene" uid="uid://cism5hr3m70j4" path="res://scenes/ui/FloatingText/FloatingText.tscn" id="6_hnssf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ao84"]
 
@@ -491,54 +490,59 @@ tile_set = SubResource("TileSet_tidao")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_0ao84")
 
-[node name="GameControl1" type="Sprite2D" parent="."]
+[node name="ControlTutorial" type="CanvasGroup" parent="."]
+
+[node name="W" type="Sprite2D" parent="ControlTutorial"]
 texture_filter = 1
 position = Vector2(408, 330)
 texture = ExtResource("2_6i361")
 
-[node name="GameControl2" type="Sprite2D" parent="."]
+[node name="Label" type="Label" parent="ControlTutorial/W"]
+texture_filter = 1
+offset_left = -20.0
+offset_top = -39.0
+offset_right = 20.0
+offset_bottom = -16.0
+text = "Jump"
+metadata/_edit_use_anchors_ = true
+
+[node name="A" type="Sprite2D" parent="ControlTutorial"]
 texture_filter = 1
 position = Vector2(374, 363)
 texture = ExtResource("3_hnssf")
 
-[node name="GameControl3" type="Sprite2D" parent="."]
+[node name="Label" type="Label" parent="ControlTutorial/A"]
+texture_filter = 1
+offset_left = -41.0
+offset_top = -39.0
+offset_bottom = -16.0
+text = "Right"
+metadata/_edit_use_anchors_ = true
+
+[node name="D" type="Sprite2D" parent="ControlTutorial"]
 texture_filter = 1
 position = Vector2(443, 363)
 texture = ExtResource("4_l4xe3")
 
-[node name="GameControl4" type="Sprite2D" parent="."]
+[node name="Label" type="Label" parent="ControlTutorial/D"]
+texture_filter = 1
+offset_left = 2.0
+offset_top = -38.0
+offset_right = 42.0
+offset_bottom = -15.0
+text = "Left"
+metadata/_edit_use_anchors_ = true
+
+[node name="U" type="Sprite2D" parent="ControlTutorial"]
 texture_filter = 1
 position = Vector2(269, 363)
 texture = ExtResource("5_gi128")
 
-[node name="FloatingText" parent="." instance=ExtResource("6_hnssf")]
+[node name="Label" type="Label" parent="ControlTutorial/U"]
 texture_filter = 1
-offset_left = 251.0
-offset_top = 331.0
-offset_right = 289.0
-offset_bottom = 348.0
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 26.0
+offset_bottom = -17.0
 text = "Attack"
-
-[node name="FloatingText2" parent="." instance=ExtResource("6_hnssf")]
-texture_filter = 1
-offset_left = 331.0
-offset_top = 355.0
-offset_right = 355.0
-offset_bottom = 372.0
-text = "Left"
-
-[node name="FloatingText3" parent="." instance=ExtResource("6_hnssf")]
-texture_filter = 1
-offset_left = 393.0
-offset_top = 297.0
-offset_right = 433.0
-offset_bottom = 314.0
-text = "Jump"
-
-[node name="FloatingText4" parent="." instance=ExtResource("6_hnssf")]
-texture_filter = 1
-offset_left = 459.0
-offset_top = 353.0
-offset_right = 490.0
-offset_bottom = 370.0
-text = "Right"
+metadata/_edit_use_anchors_ = true
