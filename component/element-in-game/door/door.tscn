@@ -85,6 +85,7 @@ size = Vector2(97, 96)
 size = Vector2(32, 96)
 
 [sub_resource type="SystemFont" id="SystemFont_8ok2v"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tfxw5"]
 font = SubResource("SystemFont_8ok2v")

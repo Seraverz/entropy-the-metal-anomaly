@@ -84,9 +84,9 @@ func _check_boss_gate_conditions() -> void:
 			
 		if required_score > 0:
 			if not score_met:
-				msg += "Score: %d / %d" % [current_score, required_score]
+				msg += "Metal: %d / %d" % [current_score, required_score]
 			else:
-				msg += "Score Met (OK)"
+				msg += "Metal Met (OK)"
 		
 		_update_info_label(msg, Color(1, 0.3, 0.3))
 		_fade_label(true)
