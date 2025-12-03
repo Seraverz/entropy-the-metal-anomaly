@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwo1nka4q2pks"]
+[gd_scene load_steps=5 format=3 uid="uid://cwo1nka4q2pks"]
 
 [ext_resource type="Script" uid="uid://377po2tylgdp" path="res://scenes/ui/menus/MainMenu/main_menu.gd" id="1_vjtqc"]
-[ext_resource type="Script" uid="uid://c3v6ihn0ngusp" path="res://component/ui/sfx/UiSoundComponent.gd" id="2_chcjj"]
+[ext_resource type="Texture2D" uid="uid://1ujbciarvhso" path="res://assets/UI/1 Frames/Menu.png" id="2_g8xul"]
+[ext_resource type="Texture2D" uid="uid://t1dqe13cu2oq" path="res://assets/UI/generalbutton.png" id="3_6fxxm"]
+[ext_resource type="FontFile" uid="uid://cbhvhpjn0da6c" path="res://assets/UI/Font/CyberpunkCraftpixPixel.otf" id="4_jnww2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,32 +15,79 @@ grow_vertical = 2
 script = ExtResource("1_vjtqc")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 509.0
-offset_top = 2.0
-offset_right = 663.0
-offset_bottom = 646.0
+[node name="Menu" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(576, 326.75)
+scale = Vector2(4.77099, 2.86133)
+texture = ExtResource("2_g8xul")
+
+[node name="VBoxContainerStart" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 358.0
+offset_right = 632.0
+offset_bottom = 399.0
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="BtnStart" type="Button" parent="VBoxContainer"]
+[node name="Generalbutton2" type="Sprite2D" parent="VBoxContainerStart"]
+z_index = -1
+texture_filter = 1
+position = Vector2(78, 17)
+scale = Vector2(1, 1.41723)
+texture = ExtResource("3_6fxxm")
+
+[node name="BtnStart" type="Button" parent="VBoxContainerStart"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jnww2")
 text = "Start"
 
-[node name="BtnSound" type="Node" parent="VBoxContainer/BtnStart"]
-script = ExtResource("2_chcjj")
+[node name="VBoxContainerSettings" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 436.0
+offset_right = 630.0
+offset_bottom = 469.0
 
-[node name="BtnSettings" type="Button" parent="VBoxContainer"]
+[node name="BtnSettings" type="Button" parent="VBoxContainerSettings"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jnww2")
 text = "Settings"
 
-[node name="BtnSound" type="Node" parent="VBoxContainer/BtnSettings"]
-script = ExtResource("2_chcjj")
+[node name="Generalbutton" type="Sprite2D" parent="VBoxContainerSettings"]
+z_index = -1
+texture_filter = 1
+position = Vector2(79, 10)
+scale = Vector2(1, 1.68718)
+texture = ExtResource("3_6fxxm")
 
-[node name="BtnQuit" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainerQuit" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 508.0
+offset_right = 629.0
+offset_bottom = 548.0
+
+[node name="BtnQuit" type="Button" parent="VBoxContainerQuit"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jnww2")
 text = "Quit"
 
-[node name="BtnSound" type="Node" parent="VBoxContainer/BtnQuit"]
-script = ExtResource("2_chcjj")
+[node name="Generalbutton" type="Sprite2D" parent="VBoxContainerQuit"]
+z_index = -1
+texture_filter = 1
+position = Vector2(80, 9.99999)
+scale = Vector2(1, 1.41723)
+texture = ExtResource("3_6fxxm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 197.0
+offset_right = 1027.0
+offset_bottom = 306.0
+theme_override_fonts/font = ExtResource("4_jnww2")
+theme_override_font_sizes/font_size = 50
+text = "ENTROPY : 
+THE METAL ANOMALY"
+horizontal_alignment = 1
